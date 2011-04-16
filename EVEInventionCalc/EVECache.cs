@@ -34,8 +34,8 @@ namespace EVEInventionCalc
                      where (typeID.HasValue && t.typeID == typeID) || (typeName != null && t.typeName == typeName)
                      select new EVEItem(t.typeID, t.typeName, g.categoryID == 16, g.groupID)).FirstOrDefault();
 
-            _itemsByID.Add(x.typeID, x);
-            _itemsByName.Add(x.typeName, x);
+            _itemsByID.Add(x.TypeID, x);
+            _itemsByName.Add(x.TypeName, x);
 
             return x;
         }

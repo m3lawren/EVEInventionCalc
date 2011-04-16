@@ -22,34 +22,34 @@ namespace EVEInventionCalc.DataContext
 
         public static decimal? JitaBuyPrice(EVEItem item)
         {
-            if (_jitaBuyCache.ContainsKey(item.typeID))
-                return _jitaBuyCache[item.typeID];
+            if (_jitaBuyCache.ContainsKey(item.TypeID))
+                return _jitaBuyCache[item.TypeID];
 
             decimal? result = (from t in _pricesContext.vwBestPrices
-                               where (t.typeId == item.typeID && t.stationId == _jitaStationID)
+                               where (t.typeId == item.TypeID && t.stationId == _jitaStationID)
                                select t.buyPrice).FirstOrDefault();
 
             if (result.HasValue)
-                _jitaBuyCache.Add(item.typeID, result.Value);
-            else
-                AddItem(item);
+                _jitaBuyCache.Add(item.TypeID, result.Value);
+            
+            AddItem(item);
 
             return result;
         }
 
         public static decimal? JitaSellPrice(EVEItem item)
         {
-            if (_jitaSellCache.ContainsKey(item.typeID))
-                return _jitaSellCache[item.typeID];
+            if (_jitaSellCache.ContainsKey(item.TypeID))
+                return _jitaSellCache[item.TypeID];
 
             decimal? result = (from t in _pricesContext.vwBestPrices
-                               where (t.typeId == item.typeID && t.stationId == _jitaStationID)
+                               where (t.typeId == item.TypeID && t.stationId == _jitaStationID)
                                select t.sellPrice).FirstOrDefault();
 
             if (result.HasValue)
-                _jitaSellCache.Add(item.typeID, result.Value);
-            else
-                AddItem(item);
+                _jitaSellCache.Add(item.TypeID, result.Value);
+            
+            AddItem(item);
             
             return result;
 
@@ -58,13 +58,13 @@ namespace EVEInventionCalc.DataContext
         public static void AddItem(EVEItem item)
         {
             var result = (from t in _pricesContext.tblActiveItems
-                          where (t.itemID == item.typeID)
+                          where (t.itemID == item.TypeID)
                           select t).ToList();
 
             if (result.Count == 0)
             {
                 tblActiveItem newItem = new tblActiveItem();
-                newItem.itemID = item.typeID;
+                newItem.itemID = item.TypeID;
                 newItem.isActive = true;
                 newItem.lastUpdated = null;
 

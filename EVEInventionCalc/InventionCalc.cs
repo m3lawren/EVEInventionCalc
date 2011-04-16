@@ -49,8 +49,8 @@ namespace EVEInventionCalc
                         IEnumerable<EVEMaterial> subMats = ProductionBaseMaterials(TypesHelper.GetType(m.requiredTypeID).typeName);
                         foreach (EVEMaterial subMat in subMats)
                         {
-                            if (matInfo.ContainsKey(subMat.item.typeID))
-                                matInfo[subMat.item.typeID].quantity -= subMat.quantity;
+                            if (matInfo.ContainsKey(subMat.item.TypeID))
+                                matInfo[subMat.item.TypeID].quantity -= subMat.quantity;
                         }
                     }
                 }
@@ -165,7 +165,7 @@ namespace EVEInventionCalc
         public static double GetBaseInventionChance(string typeName)
         {
             EVEItem item = EVECache.GetItem(typeName);
-            switch (item.groupID)
+            switch (item.GroupID)
             {
                 case 25: case 420: case 513: case 893: case 902: case 324: case 830: case 831: case 541: case 834:
                     return 0.3;
@@ -176,6 +176,28 @@ namespace EVEInventionCalc
                 default:
                     return 0.4;
             }
+        }
+
+        public static EVEBlueprint GetBlueprint(string productTypeName)
+        {
+            EVEBlueprint blueprint = new EVEBlueprint();
+
+            if (productTypeName != null)
+                blueprint.Product = EVECache.GetItem(productTypeName);
+
+            var x = TypesHelper.GetBlueprintType(blueprint.Product.TypeID);
+
+            blueprint.Blueprint = EVECache.GetItem(x.blueprintTypeID);
+
+            blueprint.MaxRuns = x.maxProductionLimit.Value;
+            blueprint.BaseInventionTime = x.researchTechTime.Value;
+            blueprint.BaseProductionTime = x.productionTime.Value;
+
+            blueprint.MaterialEfficiency = -4;
+            blueprint.ProductionEfficiency = -4;
+            blueprint.NumRuns = blueprint.MaxRuns / 10;
+
+            return blueprint;
         }
     }
 }

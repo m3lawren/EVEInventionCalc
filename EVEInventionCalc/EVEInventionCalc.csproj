@@ -68,6 +68,7 @@
       <DependentUpon>Types.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataContext\TypesHelper.cs" />
+    <Compile Include="EVEBlueprint.cs" />
     <Compile Include="EVECache.cs" />
     <Compile Include="EVEGroup.cs" />
     <Compile Include="EVEItem.cs" />

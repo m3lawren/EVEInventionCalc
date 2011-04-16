@@ -11,15 +11,15 @@ namespace EVEInventionCalc
     {
         public EVEItem(int typeID, string typeName, bool isSkill, int groupID)
         {
-            this.typeID = typeID;
-            this.typeName = typeName;
-            this.isSkill = isSkill;
-            this.groupID = groupID;
+            TypeID = typeID;
+            TypeName = typeName;
+            IsSkill = isSkill;
+            GroupID = groupID;
         }
 
-        public int typeID;
-        public string typeName;
-        public bool isSkill;
-        public int groupID;
+        public int TypeID { get; private set; }
+        public string TypeName { get; private set; }
+        public bool IsSkill { get; private set; }
+        public int GroupID { get; private set; }
     }
 }

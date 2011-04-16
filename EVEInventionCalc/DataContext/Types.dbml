@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="DataDump" Class="TypesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=OSIRIS\SQLEXPRESS;Initial Catalog=DataDump;Persist Security Info=True;User ID=readonly" SettingsObjectName="EVEInventionCalc.Properties.Settings" SettingsPropertyName="DataDumpConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.invTypes" Member="invTypes">
+    <Type Name="invType">
+      <Column Name="typeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="groupID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="typeName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="graphicID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="radius" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="mass" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="volume" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="capacity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="portionSize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="raceID" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="basePrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="marketGroupID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="chanceOfDuplicating" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="iconID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.invBlueprintTypes" Member="invBlueprintTypes">
+    <Type Name="invBlueprintType">
+      <Column Name="blueprintTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="parentBlueprintTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="productTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="productionTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="techLevel" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="researchProductivityTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="researchMaterialTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="researchCopyTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="researchTechTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="productivityModifier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="materialModifier" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="wasteFactor" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="maxProductionLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.invTypeMaterials" Member="invTypeMaterials">
+    <Type Name="invTypeMaterial">
+      <Column Name="typeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="materialTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ramTypeRequirements" Member="ramTypeRequirements">
+    <Type Name="ramTypeRequirement">
+      <Column Name="typeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="activityID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="requiredTypeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="damagePerJob" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="recycle" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.invGroups" Member="invGroups">
+    <Type Name="invGroup">
+      <Column Name="groupID" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="categoryID" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="groupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="iconID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="useBasePrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="allowManufacture" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="allowRecycler" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="anchored" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="anchorable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="fittableNonSingleton" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="published" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.invMetaTypes" Member="invMetaTypes">
+    <Type Name="invMetaType">
+      <Column Name="typeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="parentTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="metaGroupID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

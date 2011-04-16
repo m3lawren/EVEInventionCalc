@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="RawEvePrices" Class="PricesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=OSIRIS\SQLEXPRESS;Initial Catalog=RawEvePrices;Integrated Security=True" SettingsObjectName="EVEInventionCalc.Properties.Settings" SettingsPropertyName="RawEvePricesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vwBestPrices" Member="vwBestPrices">
+    <Type Name="vwBestPrice">
+      <Column Name="typeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="regionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="solarSystemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="buyPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="sellPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblInventedItems" Member="tblInventedItems">
+    <Type Name="tblInventedItem">
+      <Column Name="typeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="isActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblActiveItems" Member="tblActiveItems">
+    <Type Name="tblActiveItem">
+      <Column Name="itemID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="isActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="lastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

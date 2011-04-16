@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 8.5" name="Prices">
+  <DataContextMoniker Name="/PricesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c43a53da-f767-45aa-82c1-cb502236f0ad" absoluteBounds="4.875, 2.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/PricesDataContext/vwBestPrice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="105a8842-cae7-4844-a8fd-9c45753132e4" absoluteBounds="4.8900000000000006, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a63ea81-0c32-45e2-8d4f-87b131d338a7" absoluteBounds="8.75, 0.75, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/PricesDataContext/tblInventedItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c35e042-e2b2-4398-baaf-87ece6de754f" absoluteBounds="8.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e99de95-72b9-4b91-b360-8bb01c7a3da0" absoluteBounds="10.125, 3.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PricesDataContext/tblActiveItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75bdea5e-70ed-4a6e-b74e-f404434402ab" absoluteBounds="10.14, 3.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
